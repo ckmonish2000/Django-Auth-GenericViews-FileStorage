@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'index.apps.IndexConfig',
     'mode.apps.ModeConfig',
     't.apps.TConfig',
+    'sec.apps.SecConfig'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,4 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 MEDIA_URL='/media/'
 
 
+LOGIN_REDIRECT_URL='http://127.0.0.1:8000/sec/ran'
