@@ -24,7 +24,7 @@ urlpatterns = [
     path('models/',include('t.urls')),
     path('sec/',include('sec.urls')),
     path('accounts/',include('django.contrib.auth.urls')),
-    
+    path('ajax/',include('ajax.urls')),
 
 ]
 

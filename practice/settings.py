@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'index.apps.IndexConfig',
     'mode.apps.ModeConfig',
     't.apps.TConfig',
-    'sec.apps.SecConfig'
+    'sec.apps.SecConfig',
+    'ajax.apps.AjaxConfig',
 ]
 
 MIDDLEWARE = [

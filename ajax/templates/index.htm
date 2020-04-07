@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .block{
+            border:2px black solid;
+            padding: 20px;
+            margin:5px;
+        }
+        .block:hover{
+            box-shadow: black 5px 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="val">welcome</h1>
+    <div id="parent"></div>
+
+<!-- <p id="val1">welcome</p> -->
+
+    <script>
+        ajax();
+        setInterval(function(){ajax()},10000);
+       
+           function ajax(){
+               document.getElementById('parent').innerHTML=""
+            var title,body;
+            fetch("http://127.0.0.1:8000/ajax/")
+        .then((res)=>{
+            return res.json()})
+            .then(async (data)=>{
+                
+                for (var i=0;i<data['list'].length;i++){
+                    title=await data['list'][i]['title'];
+                    body=await data['list'][i]['body'];
+                console.log(data['list'][i]['title']);
+                await val(title,body);
+                }
+                
+            });
+
+           }
+        
+            function val(sub1,sub2){
+                maindiv=document.createElement('div');
+                maindiv.classList.add('block');
+
+                par=document.getElementById('parent');
+                par.appendChild(maindiv);
+                x=document.createElement('h1');
+                x.innerHTML=sub1;
+                maindiv.appendChild(x);
+                
+                
+                y=document.createElement('p');
+                y.innerHTML=sub2;
+                maindiv.appendChild(y);
+                
+            }
+       
+    </script>
+</body>
+</html>
